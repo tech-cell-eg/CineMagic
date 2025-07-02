@@ -1,8 +1,8 @@
 *{
    font-family: 'Manrope', sans-serif;
-   background-color: #141414;
-  
+  line-height: 150%;
 }
-.index-container{
-   padding: 32px;
+body{
+    background-color: #141414;
 }
+
