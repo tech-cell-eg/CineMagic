@@ -1,0 +1,27 @@
+
+.d-right {
+  background-color: #1a1a1a;
+  border: solid 1px #262626;
+  padding: 40px;
+   border-radius: 10px;
+}
+.description {
+   background-color: #1a1a1a;
+   border: solid 1px #262626;
+   padding: 40px;
+   border-radius: 10px;
+}
+.all-lang{
+    display: flex;
+    gap: 5px;
+    margin-top: 3px;
+}
+
+.language{
+    padding: 7px;
+    border-radius: 7px;
+    background-color: #141414;
+    border: solid 1px #424242;
+    color: white;
+    
+}
