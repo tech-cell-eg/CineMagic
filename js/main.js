@@ -52,4 +52,10 @@ fetch("../newRelease/release.html")
    .then((data) => data.text())
    .then((data) => (newRelease.innerHTML = data));
 
+// ! ====================>  Details-Section Html ====================> 
+let details = document.getElementById("details");
+console.log(details);
 
+fetch("../detailes/detailes.html")
+   .then((data) => data.text())
+   .then((data) => (details.innerHTML = data));
