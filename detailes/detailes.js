@@ -1,22 +1,22 @@
-import {api_Key} from '../js/config.js'
+import { api_Key } from "../js/config.js";
 
-const searchParams = location.search;  //'?id=tt0094612'
+const searchParams = location.search; //'?id=tt0094612'
 const params = new URLSearchParams(searchParams);
 const id = params.get("id");
 
-(async function() {
-    const api = await fetch(`https://www.omdbapi.com/?i=${id}&apikey=${api_Key}`);
+(async function () {
+    const api = await fetch(
+        `https://www.omdbapi.com/?i=${id}&apikey=${api_Key}`
+    );
     let response = await api.json();
-    let data  = response;
-    
+    let data = response;
+
     displayData(data);
-})()
+})();
 
-
-
-function displayData(moviesDetailes){
+function displayData(moviesDetailes) {
     let movie = ``;
-        movie +=`
+    movie += `
               <div class="carousel-item active">
       <img src="${moviesDetailes.Poster}" class="d-block w-100" alt="...">
       <div class="carousel-caption">
@@ -27,7 +27,7 @@ function displayData(moviesDetailes){
             <i class="fa-solid fa-play"></i>
             <button type="button" class="btn">Play Now</button>
           </div>
-          <div class="plus" onclick="addMyFav(${'id'}, ${moviesDetailes.Released},${moviesDetailes.Poster})">
+          <div class="plus" onclick="addMyFav('${id}', '${moviesDetailes.Released}', '${moviesDetailes.Poster}')">
             <i class="fa-solid fa-plus"></i>
           </div>
           <div class="thumbs">
@@ -40,24 +40,13 @@ function displayData(moviesDetailes){
     document.getElementById("oneMovie").innerHTML = movie;
 }
 
+window.addMyFav = (id, Released, poster) => {
+    let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
 
-window.addMyFav = function(){
-  // console.log("hello");
-  function addToFavorites(id, Released, poster) {
-  let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-
-  // تأكدي إنه مش مكرر
-  const exists = favorites.find(movie => movie.id === id);
-  if (!exists) {
-    favorites.push({ id, Released,poster });
-    localStorage.setItem('favorites', JSON.stringify(favorites));
-  }
-
-  // الانتقال لصفحة المفضلة
-  //window.location.href = "favorites.html";
-}
-
-}
-
-
-
+    const exists = favorites.find((movie) => movie.id && movie.id === id);
+    if (!exists) {
+        favorites.push({ id, Released, poster });
+        console.log(favorites);
+        localStorage.setItem("favorites", JSON.stringify(favorites));
+    }
+};
