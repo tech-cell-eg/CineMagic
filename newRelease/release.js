@@ -1,14 +1,14 @@
-import {apiKey} from '../js/config.js'
+import { api_Key} from '../js/config.js'
 
 async function getapi() {
-    const api = await fetch(`https://www.omdbapi.com/?s=action&apikey=${apiKey}`);
+    const api = await fetch(`https://www.omdbapi.com/?s=action&apikey=${api_Key}`);
     let response = await api.json();
     let data  = response.Search;
     // console.log(data);
     
     displayData(data.slice(0,8));``
 }
-
+console.log(api_Key);
 getapi()
 
 function displayData(moviesData){
