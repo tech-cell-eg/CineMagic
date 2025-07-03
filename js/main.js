@@ -59,3 +59,11 @@ console.log(details);
 fetch("../detailes/detailes.html")
    .then((data) => data.text())
    .then((data) => (details.innerHTML = data));
+
+// ! ====================>  Details-Section Html ====================> 
+let myFav = document.getElementById("myFav");
+console.log(details);
+
+fetch("../MyFav/myFav.html")
+   .then((data) => data.text())
+   .then((data) => (myFav.innerHTML = data));

@@ -27,7 +27,7 @@ function displayData(moviesDetailes){
             <i class="fa-solid fa-play"></i>
             <button type="button" class="btn">Play Now</button>
           </div>
-          <div class="plus" onclick="addMyFav(${''},)">
+          <div class="plus" onclick="addMyFav(${'id'},${'moviesDetailes.Released'},${'moviesDetailes.Poster'})">
             <i class="fa-solid fa-plus"></i>
           </div>
           <div class="thumbs">
@@ -41,23 +41,22 @@ function displayData(moviesDetailes){
 }
 
 
-window.addMyFav = function(){
-  // console.log("hello");
-  function addToFavorites(id, title, poster) {
+window.addMyFav = function(id, released, poster){
+
   let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
 
-  // تأكدي إنه مش مكرر
   const exists = favorites.find(movie => movie.id === id);
   if (!exists) {
-    favorites.push({ id, title, poster });
+    favorites.push({ id, released, poster });
     localStorage.setItem('favorites', JSON.stringify(favorites));
   }
 
-  // الانتقال لصفحة المفضلة
-  window.location.href = "favorites.html";
+  console.log(id);
+
+  // location.href = "../MyFav/myFav.html";
 }
 
-}
+
 
 
 
