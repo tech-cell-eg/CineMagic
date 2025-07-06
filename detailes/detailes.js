@@ -46,7 +46,9 @@ window.addMyFav = (id, Released, poster) => {
     const exists = favorites.find((movie) => movie.id && movie.id === id);
     if (!exists) {
         favorites.push({ id, Released, poster });
-        console.log(favorites);
+        // console.log(favorites);
         localStorage.setItem("favorites", JSON.stringify(favorites));
     }
+
+    location.href = "../MyFav/myFav.html";
 };

@@ -6,9 +6,9 @@ async function getapi() {
     let data  = response.Search;
     // console.log(data);
     
-    displayData(data.slice(0,8));``
+    displayData(data.slice(0,8));
 }
-console.log(api_Key);
+// console.log(api_Key);
 getapi()
 
 function displayData(moviesData){
@@ -25,8 +25,6 @@ function displayData(moviesData){
     }
     document.getElementById("new").innerHTML = DataRelease;
 }
-
-
 
 window.showDetails = function (id) {
   location.href = `../detailes/detailes.html?id=${id}`;
